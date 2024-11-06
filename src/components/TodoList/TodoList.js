@@ -4,6 +4,7 @@ import TodoItem from './TodoItem';
 import TodoFooter from './TodoFooter';
 import TodoSort from './TodoSort';
 import useTodos from '../../hooks/useTodos';
+import wallpaper from '../../assets/images/wallpaper.jpg';
 
 const TodoList = () => {
   const {
@@ -20,9 +21,13 @@ const TodoList = () => {
   } = useTodos();
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 flex items-start justify-center">
+    <div
+    className="min-h-screen p-4 flex items-center justify-center"
+    style={{ backgroundImage: `url(${wallpaper})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+  >
+
       <div className="w-full max-w-md bg-white rounded-3xl shadow-lg p-6">
-        <h1 className="text-[#1E1B4B] text-2xl font-bold text-center mb-6">
+        <h1 className="text-[#1E1B4B] text-3xl font-bold text-center mb-6">
           Daily To Do List
         </h1>
 
@@ -56,4 +61,4 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+export default TodoList;
