@@ -40,19 +40,19 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px; /* Default padding */
+  padding: 20px; 
 }
 
 @media (max-width: 768px) {
   .todo-container {
-    padding: 10px; /* Smaller padding for mobile */
+    padding: 10px; 
   }
   .todo-title {
-    font-size: 1.5rem; /* Smaller title font size for mobile */
+    font-size: 1.5rem; 
   }
 }
 
 .todo-item {
-  width: 100%; /* Make todo items full width */
-  margin: 5px 0; /* Margin between items */
+  width: 100%; 
+  margin: 5px 0; 
 }
