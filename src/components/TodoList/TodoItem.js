@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { Check, Pencil, X, Save } from 'lucide-react';
+import { Check, Pencil, X, Save, Trash } from 'lucide-react';
 
-const TodoItem = ({ todo, toggleTodo, updateTodo }) => {
+const TodoItem = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
 
@@ -21,11 +21,9 @@ const TodoItem = ({ todo, toggleTodo, updateTodo }) => {
   };
 
   return (
-    <div
-      className={`group flex items-center gap-3 px-2 py-1 ${
-        todo.completed ? 'opacity-50' : ''
-      }`}
-    >
+    <div className={`flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow ${
+      todo.completed ? 'bg-gray-50' : ''
+    }`}>
       <button
         onClick={() => toggleTodo(todo.id)}
         className={`shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
@@ -49,7 +47,7 @@ const TodoItem = ({ todo, toggleTodo, updateTodo }) => {
           <div className="flex gap-1">
             <button
               type="submit"
-              className="p-1 rounded-lg text-emerald-600 hover:bg-emerald-50 transition-colors"
+              className="p-1.5 rounded-lg text-emerald-600 hover:bg-emerald-50 transition-colors"
               title="Save"
             >
               <Save className="h-4 w-4" />
@@ -57,7 +55,7 @@ const TodoItem = ({ todo, toggleTodo, updateTodo }) => {
             <button
               type="button"
               onClick={handleCancel}
-              className="p-1 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
+              className="p-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
               title="Cancel"
             >
               <X className="h-4 w-4" />
@@ -67,21 +65,30 @@ const TodoItem = ({ todo, toggleTodo, updateTodo }) => {
       ) : (
         <>
           <span className={`flex-1 text-gray-700 ${
-            todo.completed ? 'line-through' : ''
+            todo.completed ? 'line-through text-gray-400' : ''
           }`}>
             {todo.text}
           </span>
-          <button
-            onClick={() => setIsEditing(true)}
-            className="p-1 rounded-lg text-gray-400 hover:text-blue-600 hover:bg-blue-50 transition-colors opacity-0 group-hover:opacity-100"
-            title="Edit"
-          >
-            <Pencil className="h-4 w-4" />
-          </button>
+          <div className="flex items-center gap-1">
+            <button
+              onClick={() => setIsEditing(true)}
+              className="p-1.5 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
+              title="Edit"
+            >
+              <Pencil className="h-4 w-4" />
+            </button>
+            <button
+              onClick={() => deleteTodo(todo.id)}
+              className="p-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
+              title="Delete"
+            >
+              <Trash className="h-4 w-4" />
+            </button>
+          </div>
         </>
       )}
     </div>
   );
 };
 
-export default TodoItem;
+export default TodoItem;

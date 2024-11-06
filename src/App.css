@@ -36,3 +36,23 @@
     transform: rotate(360deg);
   }
 }
+.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Default padding */
+}
+
+@media (max-width: 768px) {
+  .todo-container {
+    padding: 10px; /* Smaller padding for mobile */
+  }
+  .todo-title {
+    font-size: 1.5rem; /* Smaller title font size for mobile */
+  }
+}
+
+.todo-item {
+  width: 100%; /* Make todo items full width */
+  margin: 5px 0; /* Margin between items */
+}

@@ -43,6 +43,10 @@ const useTodos = () => {
     ));
   };
 
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
   const clearAll = () => {
     setTodos([]);
   };
@@ -65,6 +69,7 @@ const useTodos = () => {
     addTodo,
     toggleTodo,
     updateTodo,
+    deleteTodo,
     clearAll,
     sortBy,
     setSortBy,

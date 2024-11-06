@@ -6,6 +6,7 @@ import TodoSort from './TodoSort';
 import useTodos from '../../hooks/useTodos';
 import wallpaper from '../../assets/images/wallpaper.jpg';
 
+
 const TodoList = () => {
   const {
     todos,
@@ -14,6 +15,7 @@ const TodoList = () => {
     addTodo,
     toggleTodo,
     updateTodo,
+    deleteTodo,
     clearAll,
     sortBy,
     setSortBy,
@@ -21,15 +23,13 @@ const TodoList = () => {
   } = useTodos();
 
   return (
-    <div
-    className="min-h-screen p-4 flex items-center justify-center"
-    style={{ backgroundImage: `url(${wallpaper})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-  >
+    <div className="min-h-screen p-4 flex items-center justify-center"
+    style={{ backgroundImage: `url(${wallpaper})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
 
       <div className="w-full max-w-md bg-white rounded-3xl shadow-lg p-6">
-        <h1 className="text-[#1E1B4B] text-3xl font-bold text-center mb-6">
-          Daily To Do List
-        </h1>
+      <h1 className="text-[#1E1B4B] text-2xl md:text-3xl font-bold text-center mb-6">
+        Daily To Do List
+      </h1>
 
         <TodoInput
           newTodo={newTodo}
@@ -46,6 +46,7 @@ const TodoList = () => {
               todo={todo}
               toggleTodo={toggleTodo}
               updateTodo={updateTodo}
+              deleteTodo={deleteTodo}
             />
           ))}
         </div>
@@ -61,4 +62,4 @@ const TodoList = () => {
   );
 };
 
-export default TodoList;
+export default TodoList;
