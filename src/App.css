@@ -36,63 +36,70 @@
     transform: rotate(360deg);
   }
 }
-
-/* Todo Container Styles */
 .todo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px;
-  width: 100%;
-  box-sizing: border-box; /* Ensure padding is included in total width */
+  padding: 20px; 
 }
 
 @media (max-width: 768px) {
   .todo-container {
-    padding: 10px;
+    padding: 10px; 
+  }
+  .todo-title {
+    font-size: 1.5rem; 
   }
 }
 
-/* Todo Item Styles */
 .todo-item {
-  width: 100%;
-  margin: 5px 0;
-}
-
-/* Todo Title Responsive Style */
-.todo-title {
-  font-size: 2rem;
+  width: 100%; 
+  margin: 5px 0; 
+}.todo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; 
+  width: 100%; /* Ensure the container takes full width */
 }
 
 @media (max-width: 768px) {
+  .todo-container {
+    padding: 10px; 
+  }
   .todo-title {
-    font-size: 1.5rem;
+    font-size: 1.5rem; 
   }
 }
 
-/* Add Button Styles */
+.todo-item {
+  width: 100%; 
+  margin: 5px 0; 
+}
+
 .add-button {
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  transition: background-color 0.3s;
+  padding: 0.5rem 1rem; /* Default padding */
+  font-size: 1rem; /* Default font size */
+  transition: background-color 0.3s; /* Smooth transition for hover */
   width: 100%; /* Make button full width */
-  box-sizing: border-box; /* Include padding in width */
+  box-sizing: border-box; /* Ensure padding is included in total width */
 }
 
 .add-button:hover {
-  background-color: #3b82f6;
+  background-color: #3b82f6; /* Darker blue on hover */
 }
 
+/* Responsive styles */
 @media (min-width: 640px) {
   .add-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.125rem;
+    padding: 0.75rem 1.5rem; /* Larger padding on medium screens */
+    font-size: 1.125rem; /* Larger font size */
   }
 }
 
 @media (min-width: 768px) {
   .add-button {
-    padding: 1rem 2rem;
-    font-size: 1.25rem;
+    padding: 1rem 2rem; /* Even larger padding on larger screens */
+    font-size: 1.25rem; /* Larger font size */
   }
 }
