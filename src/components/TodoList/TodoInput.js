@@ -3,7 +3,7 @@ import React from 'react';
 const TodoInput = ({ newTodo, setNewTodo, addTodo }) => {
   return (
     <form onSubmit={addTodo} className="mb-6">
-      <div className="flex gap-2">
+      <div className="flex flex-col sm:flex-row gap-2">
         <input
           type="text"
           placeholder="Add new list item"
@@ -13,7 +13,7 @@ const TodoInput = ({ newTodo, setNewTodo, addTodo }) => {
         />
         <button 
           type="submit"
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
+          className="w-full sm:w-auto px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-sm sm:text-base"
         >
           Add
         </button>
