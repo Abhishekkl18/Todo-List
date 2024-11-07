@@ -15,3 +15,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Center items in the container */
+}
+
+.item {
+  flex: 1 1 300px; /* Flex items to grow and shrink, with a base width of 300px */
+  margin: 10px; /* Add some margin between items */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .item {
+    flex: 1 1 100%; /* Stack items on small screens */
+  }
+}

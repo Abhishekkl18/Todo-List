@@ -1,10 +1,22 @@
 import React, { useState } from 'react';
 import { Check, Pencil, X, Save, Trash } from 'lucide-react';
 
+/**
+ * A component that represents an individual todo item with functionality to toggle, edit, and delete it.
+ *
+ * @param {Object} props - Component props.
+ * @param {Object} props.todo - The todo item object containing `id`, `text`, and `completed` properties.
+ * @param {Function} props.toggleTodo - Function to toggle the completion status of the todo.
+ * @param {Function} props.updateTodo - Function to update the text of the todo.
+ * @param {Function} props.deleteTodo - Function to delete the todo.
+ */
+
 const TodoItem = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
+  // Local state for managing edit mode and the updated text
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
 
+  // Handle submission of edited text
   const handleSubmit = (e) => {
     e.preventDefault();
     if (editText.trim() && editText.trim() !== todo.text) {
@@ -14,7 +26,7 @@ const TodoItem = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
     }
     setIsEditing(false);
   };
-
+  // Handle cancellation of editing
   const handleCancel = () => {
     setEditText(todo.text);
     setIsEditing(false);
@@ -24,6 +36,7 @@ const TodoItem = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
     <div className={`flex items-center gap-2 px-3 py-2 bg-white rounded-lg border border-gray-100 shadow-sm hover:shadow-md transition-shadow ${
       todo.completed ? 'bg-gray-50' : ''
     }`}>
+      {/* Toggle button to mark the todo as completed or not */}
       <button
         onClick={() => toggleTodo(todo.id)}
         className={`shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center transition-colors ${
@@ -36,11 +49,12 @@ const TodoItem = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
       </button>
       
       {isEditing ? (
+        // Editing mode: input field and action buttons
         <form onSubmit={handleSubmit} className="flex-1 flex items-center gap-2">
           <input
             type="text"
             value={editText}
-            onChange={(e) => setEditText(e.target.value)}
+            onChange={(e) => setEditText(e.target.value)}// Update the local state on change
             className="flex-1 px-2 py-1 rounded border border-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
             autoFocus
           />
@@ -63,6 +77,7 @@ const TodoItem = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
           </div>
         </form>
       ) : (
+        // Display mode: todo text and action buttons
         <>
           <span className={`flex-1 text-gray-700 ${
             todo.completed ? 'line-through text-gray-400' : ''
@@ -71,14 +86,14 @@ const TodoItem = ({ todo, toggleTodo, updateTodo, deleteTodo }) => {
           </span>
           <div className="flex items-center gap-1">
             <button
-              onClick={() => setIsEditing(true)}
+              onClick={() => setIsEditing(true)}// Enter edit mode
               className="p-1.5 rounded-lg text-blue-600 hover:bg-blue-50 transition-colors"
               title="Edit"
             >
               <Pencil className="h-4 w-4" />
             </button>
             <button
-              onClick={() => deleteTodo(todo.id)}
+              onClick={() => deleteTodo(todo.id)}// Delete the todo
               className="p-1.5 rounded-lg text-red-600 hover:bg-red-50 transition-colors"
               title="Delete"
             >
